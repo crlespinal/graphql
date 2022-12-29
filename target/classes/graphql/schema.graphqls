@@ -1,0 +1,26 @@
+type Product {
+    id: ID
+    label: String
+    description: String
+    skus: [Skus]
+}
+
+type Query {
+    products: [Product]
+    findProductBySkus(skus: [String]!): [Product]
+}
+
+type Skus {
+    id: ID
+    number: String
+    productId: Int
+}
+
+type Mutation{
+    addProduct(product: ProductInput!) : Product
+}
+
+input ProductInput{
+    label: String!
+    description: String!
+}
